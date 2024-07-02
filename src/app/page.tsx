@@ -10,7 +10,13 @@ export default function Home() {
             Tab Highlighting
           </Link>
           <Link href="/card-layout" className="hover:underline">
-            Card layout
+            Card Layout
+          </Link>
+          <Link
+            href="/layout-animation-boilerplate"
+            className="hover:underline"
+          >
+            Layout Animation Boilerplate
           </Link>
         </div>
       </div>
