@@ -30,7 +30,7 @@ export default function Page() {
           <ul className="relative flex w-96 flex-col items-center gap-2">
             {TABS.map((tab, i) => (
               <motion.li
-                className="flex w-full cursor-pointer p-4 bg-white text-zinc-500 hover:text-zinc-900 hover:shadow ring-1 ring-zinc-900/5 items-center justify-between group"
+                className="flex w-full cursor-pointer p-4 bg-white text-zinc-900 ring-1 ring-zinc-900/5 items-center justify-between group"
                 layoutId={`card-${tab.id}`}
                 key={tab.id}
                 onClick={() => {
