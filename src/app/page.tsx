@@ -18,6 +18,9 @@ export default function Home() {
           >
             Layout Animation Boilerplate
           </Link>
+          <Link href="/scroll-animation" className="hover:underline">
+            Scroll Animation
+          </Link>
         </div>
       </div>
     </div>
