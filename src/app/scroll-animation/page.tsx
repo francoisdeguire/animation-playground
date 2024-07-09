@@ -7,20 +7,10 @@ export default function Page() {
   const targetRef = useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end start"],
   })
 
-  const messageAOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.9, 1],
-    [0, 1, 1, 0]
-  )
-
-  const imageDarken = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.9, 1],
-    [0, 0.5, 0.5, 0]
-  )
+  const imageDarken = useTransform(scrollYProgress, [0, 0.1], [0, 0.5])
 
   return (
     <main>
@@ -28,7 +18,7 @@ export default function Page() {
         Section
       </div>
       <div className="relative z-10 w-full overflow-x-clip">
-        <section ref={targetRef} className="relative z-10 h-[250vh]">
+        <section ref={targetRef} className="relative z-10 h-[400vh]">
           <div className="sticky top-0">
             <div className="flex justify-center">
               <motion.div className="origin-top">
@@ -37,15 +27,25 @@ export default function Page() {
                   className="h-[100vh] max-h-none w-full"
                 />
                 <motion.div
+                  className="h-screen w-screen fixed flex z-50  top-0 left-0 items-center justify-center"
+                  style={{
+                    opacity: useTransform(scrollYProgress, [0, 0.1], [0, 1]),
+                    y: useTransform(
+                      scrollYProgress,
+                      [0, 0.75, 1],
+                      ["0%", "0%", "-100%"]
+                    ),
+                  }}
+                >
+                  <h1 className="text-white font-bold text-5xs text-center">
+                    Hey this is a message
+                  </h1>
+                </motion.div>
+
+                <motion.div
                   style={{ opacity: imageDarken }}
                   className="absolute inset-0 z-20 bg-black"
                 />
-                <motion.h1
-                  style={{ opacity: messageAOpacity }}
-                  className="z-50 text-white font-bold text-5xs fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-                >
-                  Hey this is a message
-                </motion.h1>
               </motion.div>
             </div>
           </div>
